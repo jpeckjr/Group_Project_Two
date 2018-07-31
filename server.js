@@ -15,7 +15,7 @@ let apiRoutes = require("./controllers/api-routes.js");
 let htmlRoutes = require("./controllers/html-routes.js");
 apiRoutes(app, htmlRoutes);
 
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
         console.log("Listening on port " + PORT);
     });
