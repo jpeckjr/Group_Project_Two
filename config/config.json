@@ -1,0 +1,21 @@
+{
+    "development": {
+      "username": "DB_USERNAME",
+      "password": "DB_PASSWORD",
+      "database": "DB_DATABASE",
+      "host": "DB_HOST",
+      "port": "DB_PORT",
+      "dialect": "DB_DIALECT"
+    },
+    "test": {
+      "username": "root",
+      "password": null,
+      "database": "database_test",
+      "host": "127.0.0.1",
+      "port": 3306,
+      "dialect": "mysql"
+    },
+    "production": {
+      "use_env_variable": "DATABASE_URL"
+    }
+  }

@@ -1,6 +1,6 @@
 module.exports = function (sequelize, DataTypes) {
-    //do sequelize define for the users table
-    let Users = sequelize.define("UsersTest", {
+    //do sequelize define for the disaster events table
+    let Disaster = sequelize.define("DisasterTest", {
         something: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -15,5 +15,5 @@ module.exports = function (sequelize, DataTypes) {
         }
     });
 
-    return Users;
+    return Disaster;
 };
