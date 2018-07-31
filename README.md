@@ -1,12 +1,29 @@
 # Group_Project_Two
 
-# Errors
+### Concept
+The opposite of Travelosity/Expedia/Hotwire: discourage people from travelling by showing them natural disasters that occurred recently at their desired destination
 
-* Use Try and catch
-* Write assert functions for testing
-* Separate test js file
-* Use chai node package
-* nightmare for ui testing
+### Requirements (copied from PowerPoint)
+
+* Must use a Node and Express Web Server
+* Must be backed by a MySQL Database with a Sequelize ORM
+* Must have both GET and POST routes for retrieving and adding new data
+* Must be deployed using Heroku (with Data)
+* TBD: **Must utilize at least one new library, package, or technology that we haven’t discussed**
+* Must have a polished frontend / UI
+* Must have folder structure that meets MVC Paradigm
+* Must meet good quality coding standards (indentation, scoping, naming)
+* Must protect API keys in node with environment variables.
+        
+### Nice To Haves (copied from PowerPoint)
+* Utilize Handlebars for Server-Side Templating
+    * Not planned.  Not helpful for this project.
+* Incorporate Authentication (JSON Web Tokens, Sessions, Etc.)
+    * In design
+* Use an existing public dataset to power the database
+    * In design: Dataset will be from the US Government: https://catalog.data.gov/dataset/ncdc-storm-events-database
+* Create a migration strategy for sharing data across team members e.g. using a seed/schema.sql file.
+    * TBD
 
 
 # Pages
@@ -36,7 +53,7 @@
 
 # Paths
 
-## Public paths
+## HTML paths
 
 #### '/home'
 * Type: GET
@@ -45,6 +62,8 @@
 #### '/search'
 * Type: GET
 * Description Search page that also displays results
+
+## API paths
 
 #### '/api/register'
 * Type: POST
@@ -86,7 +105,7 @@
     ```
 
 ### '/api/search'
-* Type: POST
+* Type: GET
 * Description: 
 * Request:
     ```javascript
@@ -94,10 +113,10 @@
         "text": "Laramie, Wyoming"
     }
     ```
-* Response:
+* Response (TBD based on data):
     ```javascript
     {
-        "":""
+        "table":"[{'lat':'', 'long':''},{}]"
     }
     ```
 
@@ -116,3 +135,16 @@
 
 # Node packages
 
+* express
+* body-parser
+* mysql
+* sequelize
+
+
+# Errors
+
+* Use Try and catch
+* Write assert functions for testing
+* Separate test js file
+* Use chai node package
+* nightmare for ui testing
