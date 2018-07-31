@@ -1,0 +1,49 @@
+/* body {
+    background-image: url("images/lightning.jpg");
+} */
+.jumbotron {
+    margin-top: 50px;
+    background: none;
+    text-align: center;
+    color: white;
+}
+.forminput {
+    width: 50%;
+    margin-bottom: 20px;
+}
+.dropdown {
+    text-align: center;
+    margin-top: 20px;
+}
+#dropdownMenuButton {
+    background-color: white;
+    color: black
+}
+.btn-sm {
+    width: 100%;   
+}
+h5 {
+    color: black;
+}
+.modal-body {
+    color: black;
+}
+.modal-content {
+    /* background-image: url("https://www.tvovermind.com/wp-content/uploads/2018/05/Chris-Farley-El-Nino.jpg");
+    background-size: contain; */
+}
+.my-4 {
+    background-color: white;
+}
+.jumbotron2 {
+    background-color: black;
+    color: red;
+}
+#login {
+    float: right;
+}
+.userForm {
+    border-bottom: 1px solid black;
+}
+
+
