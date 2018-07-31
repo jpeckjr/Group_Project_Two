@@ -1,0 +1,149 @@
+ /* User Logged in */
+
+ #login {
+    float: right;
+}
+
+/* Dropdown Search Results */
+
+.navbar .mega-dropdown {
+    position: static !important;
+}
+
+.navbar .dropdown-menu.mega-menu {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 a {
+    padding: 15px 10px 10px 35px;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 a.news-title-2 {
+    font-weight: 500;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    -webkit-transition: .2s;
+    transition: .2s;
+    color: #fff !important;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 a.news-title-2:hover {
+    color: #d0d6e2 !important;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul {
+    list-style: none;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul.caret-style li {
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul.caret-style li:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul.caret-style li a:after {
+    font-family: "fontAwesome";
+    content: '\f0da';
+    position: absolute;
+    left: 0.5rem;
+    font-size: 12px;
+    top: 1rem;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .sub-menu a.menu-item {
+    color: #fff !important;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .sub-menu a.menu-item:hover {
+    color: #fff !important;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .sub-title {
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid;
+}
+
+.navbar .dropdown-menu.mega-menu.v-2 .font-small {
+    font-size: 0.85rem;
+}
+
+/* Dropdown Search Results end */
+
+.jumbotron {
+    color: red;
+    margin-bottom: auto;
+    background-color: #444;
+}
+
+.container {
+    color: red;
+    text-align: center;
+    background-color:#444;
+}
+
+.fakeimg {
+    height: 200px;
+    background: #aaa;
+}
+
+/* ========Section Counter========== */
+
+.storms {
+    float: left;
+    width: 25%;
+    padding: 0 5px;
+
+}
+
+.row {
+    margin: 2px;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Responsive columns */
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Style the counter cards */
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #444;
+    color: red;
+    font-size: 20px;
+}
+
+.fas {
+    font-size: 50px;
+}
+
+.fab {
+    font-size: 50px;
+}
+
+.fal {
+    font-size: 50px;
+}
