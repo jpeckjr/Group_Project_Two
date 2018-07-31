@@ -3,8 +3,28 @@ const db = require("../models");
 module.exports = function (app, cb) {
 
     app.post("/api/register", function (req, res) {
-        res.json({ "success": "success" });
-        console.log(req);
+        let success = "false";
+        let error = "";
+        let username = "";
+        db.User.findOne({
+            where: {
+                username: req.body.username.toLowerCase()
+            }
+        }).then(function (user) {
+            console.log(user);
+            if (user) {
+                error = "username already exists, pick another";
+                username = user.dataValues.username;
+                res.json({ "success": success, "error": error, "username": username });
+            } else {
+                db.User.create(req.body).then(function(dbPost) {
+                    username = dbPost.dataValues.username;
+                    success = "true";
+                    res.json({ "success": success, "error": error, "username": username });
+                });
+            }
+        });
+
     });
 
     app.post("/api/login", function (req, res) {
