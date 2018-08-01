@@ -150,9 +150,9 @@
     // validate password =========================================================================
 
     $(function () {
-        $("#btnSubmit").click(function () {
-            var password = $("#txtPassword").val();
-            var confirmPassword = $("#txtConfirmPassword").val();
+        $("#submit").click(function () {
+            var password = $("#password-register").val();
+            var confirmPassword = $("#password-confirm").val();
             if (password != confirmPassword) {
                 alert("Passwords do not match.");
                 return false;
