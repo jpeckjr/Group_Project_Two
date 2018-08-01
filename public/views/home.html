@@ -51,7 +51,7 @@
                   <script>                    
 
                 $("#submit").on("submit", function() {
-                    
+                    event.preventDefault();
                     let userInfo = {
                       username: $("#username").val(),
                       email: $("#email").val(),
@@ -59,12 +59,23 @@
                     };
                     console.log(userInfo);
 
-                    $.post("/api/register", userInfo, function(data) {
-                      data.username.append($("#modal-body").text());
-                      data.success
-                      data.error
-                    })
+                   $.ajax({
+                        type: "POST",
+                        url: "/api/register",
+                        data: userInfo,
+                        success: function (response) {
+                            if (response === "success") {
+                              $(".modal-body").html("You have successfully created an account. Please log in.")
+                            }
+                            else {
+                              $(".modal-body").html("Please try again");
+                            }                                        
+                            
+                        },
+                        dataType: "json"
+                    });
                 })
+
 
                   </script>
                   <button  class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration" type="submit" role="button" id="submit">Create Account</button>
