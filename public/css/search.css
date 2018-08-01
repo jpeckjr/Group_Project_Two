@@ -1,92 +1,35 @@
- /* User Logged in */
+/* User Logged in */
 
- #login {
+.topnav {
     float: right;
+    
 }
 
-/* Dropdown Search Results */
+body { 
+    /* The image used */
+    background-image: url("../images/background.jpg");
 
-.navbar .mega-dropdown {
-    position: static !important;
+    /* Full height */
+    height: 100%; 
+
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-
-.navbar .dropdown-menu.mega-menu {
-    width: 100%;
-    border: none;
-    border-radius: 0;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 a {
-    padding: 15px 10px 10px 35px;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 a.news-title-2 {
-    font-weight: 500;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    -webkit-transition: .2s;
-    transition: .2s;
-    color: #fff !important;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 a.news-title-2:hover {
-    color: #d0d6e2 !important;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul {
-    list-style: none;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul.caret-style li {
-    -webkit-transition: .3s;
-    transition: .3s;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul.caret-style li:hover {
-    background-color: rgba(0, 0, 0, 0.2);
-    -webkit-transition: .3s;
-    transition: .3s;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .sub-menu ul.caret-style li a:after {
-    font-family: "fontAwesome";
-    content: '\f0da';
-    position: absolute;
-    left: 0.5rem;
-    font-size: 12px;
-    top: 1rem;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .sub-menu a.menu-item {
-    color: #fff !important;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .sub-menu a.menu-item:hover {
-    color: #fff !important;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .sub-title {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid;
-}
-
-.navbar .dropdown-menu.mega-menu.v-2 .font-small {
-    font-size: 0.85rem;
-}
-
-/* Dropdown Search Results end */
 
 .jumbotron {
     color: red;
     margin-bottom: auto;
-    background-color: #444;
+    background-color: rgb(68,68,68,.8);
 }
 
 .container {
     color: red;
     text-align: center;
-    background-color:#444;
+    background-color: rgb(68,68,68,.8);
+    
 }
 
 .fakeimg {
