@@ -75,9 +75,11 @@ module.exports = function (app, cb) {
 
     app.get("/api/disasters", function (req, res) {
         if (req.session.user_id) {
-            // Insert real code here
-            res.json({ "success": "success" });
-            console.log(req);
+            db.stormevents2008.findAll({
+                limit: 300
+            }).then(function(results) {
+                res.json({"data": JSON.stringify(results)});
+            });
         } else {
             res.redirect("/home");
         }
