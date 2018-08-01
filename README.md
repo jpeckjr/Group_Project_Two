@@ -122,13 +122,12 @@ The opposite of Travelosity/Expedia/Hotwire: discourage people from travelling b
     ```
 
 
-### '/api/save'
+### '/api/searches'
 * Type: POST
 * Description:
 * Request:
     ```javascript
     {
-        "user_id": "1",
         "search_text": "Laramie, Wyoming",
         "avoid_destination": "true"
     }
@@ -139,6 +138,21 @@ The opposite of Travelosity/Expedia/Hotwire: discourage people from travelling b
         "success": "false"
     }
     ```
+
+### '/api/searches'
+* Type: GET
+* Description:
+* Request: not used
+    ```javascript
+
+    ```
+* Response:
+    ```javascript
+    {
+        "data": "[{\"id\":3,\"search_text\":\"Laramie, WY\",\"avoid_destination\":true,\"createdAt\":\"2018-08-01T17:06:00.000Z\",\"updatedAt\":\"2018-08-01T17:06:00.000Z\",\"UserId\":5},{\"id\":4,\"search_text\":\"Bozeman, MT\",\"avoid_destination\":false,\"createdAt\":\"2018-08-01T17:06:15.000Z\",\"updatedAt\":\"2018-08-01T17:06:15.000Z\",\"UserId\":5},{\"id\":5,\"search_text\":\"St Paul, MN\",\"avoid_destination\":false,\"createdAt\":\"2018-08-01T17:06:23.000Z\",\"updatedAt\":\"2018-08-01T17:06:23.000Z\",\"UserId\":5}]"
+    }
+    ```
+
 
 # Node packages
 
