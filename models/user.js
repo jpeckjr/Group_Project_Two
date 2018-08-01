@@ -1,5 +1,5 @@
 module.exports = function (sequelize, DataTypes) {
-    //do sequelize define for the users table
+    
     let Users = sequelize.define("User", {
         id: {
             type: DataTypes.INTEGER,
@@ -16,7 +16,11 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         password: {
-            type: DataTypes.STRING,
+            type: DataTypes.STRING(2000),
+            allowNull: false
+        },
+        password_salt: {
+            type: DataTypes.STRING(2000),
             allowNull: false
         },
         email: {

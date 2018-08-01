@@ -1,4 +1,5 @@
 const db = require("../models");
+const crypto = require("crypto");
 
 module.exports = function (app, cb) {
 
@@ -11,13 +12,23 @@ module.exports = function (app, cb) {
                 username: req.body.username.toLowerCase()
             }
         }).then(function (user) {
-            console.log(user);
+            
             if (user) {
                 error = "username already exists, pick another";
                 username = user.dataValues.username;
                 res.json({ "success": success, "error": error, "username": username });
             } else {
-                db.User.create(req.body).then(function(dbPost) {
+                let newUser = req.body;
+                newUser["username"] = newUser.username.toLowerCase();
+
+                let password_salt = crypto.randomBytes(132).toString('hex').slice(0, 132);
+                let hash = crypto.createHmac("sha512", password_salt);
+                hash.update(req.body.password);
+                let password_hash = hash.digest('hex');
+                newUser["password"] = password_hash;
+                newUser["password_salt"] = password_salt;
+
+                db.User.create(newUser).then(function(dbPost) {
                     username = dbPost.dataValues.username;
                     success = "true";
                     res.json({ "success": success, "error": error, "username": username });
@@ -37,9 +48,12 @@ module.exports = function (app, cb) {
             }
         }).then(function (user) {
             let userObject = user.dataValues;
-            console.log(userObject);
             if (userObject) {
-                if (req.body.password === userObject.password) {
+                let hash = crypto.createHmac("sha512", userObject.password_salt);
+                hash.update(req.body.password);
+                if (hash.digest('hex') === userObject.password) {
+                    let currentSession = req.session;
+                    currentSession.username = userObject.username;
                     token = "nvnvnvnvnvnxcqwerqwerqwer";
                 } else {
                     error = "Invalid password";
@@ -50,6 +64,15 @@ module.exports = function (app, cb) {
             res.json({"data": data, "token": token, "error": error});
         });
         
+    });
+
+    app.get("/api/logout", function (req, res) {
+        req.session.destroy(function (err) {
+            if (err)
+                console.log(err);
+            else
+                res.redirect('/');
+        });
     });
 
     app.get("/api/search", function (req, res) {
