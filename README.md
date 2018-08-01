@@ -9,7 +9,8 @@ The opposite of Travelosity/Expedia/Hotwire: discourage people from travelling b
 * Must be backed by a MySQL Database with a Sequelize ORM
 * Must have both GET and POST routes for retrieving and adding new data
 * Must be deployed using Heroku (with Data)
-* TBD: **Must utilize at least one new library, package, or technology that we haven’t discussed**
+* Must utilize at least one new library, package, or technology that we haven’t discussed
+    * Crypto and express-session
 * Must have a polished frontend / UI
 * Must have folder structure that meets MVC Paradigm
 * Must meet good quality coding standards (indentation, scoping, naming)
@@ -126,11 +127,17 @@ The opposite of Travelosity/Expedia/Hotwire: discourage people from travelling b
 * Description:
 * Request:
     ```javascript
-
+    {
+        "user_id": "1",
+        "search_text": "Laramie, Wyoming",
+        "avoid_destination": "true"
+    }
     ```
 * Response:
     ```javascript
-
+    {
+        "success": "false"
+    }
     ```
 
 # Node packages
