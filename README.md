@@ -105,7 +105,7 @@ The opposite of Travelosity/Expedia/Hotwire: discourage people from travelling b
     }
     ```
 
-### '/api/search'
+### '/api/disasters'
 * Type: GET
 * Description: 
 * Request:

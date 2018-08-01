@@ -54,6 +54,7 @@ module.exports = function (app, cb) {
                 if (hash.digest('hex') === userObject.password) {
                     let currentSession = req.session;
                     currentSession.username = userObject.username;
+                    currentSession.user_id = userObject.id;
                     token = "nvnvnvnvnvnxcqwerqwerqwer";
                 } else {
                     error = "Invalid password";
@@ -75,14 +76,26 @@ module.exports = function (app, cb) {
         });
     });
 
-    app.get("/api/search", function (req, res) {
+    app.get("/api/disasters", function (req, res) {
         res.json({ "success": "success" });
         console.log(req);
     });
 
-    app.post("/api/save", function (req, res) {
-        res.json({ "success": "success" });
+    app.post("/api/searches", function (req, res) {
+        db.Search.create({"UserId": req.session.user_id}).then(function(dbPost) {
+            res.json({"success": "true"});
+        });
         console.log(req);
+    });
+
+    app.get("/api/searches", function (req, res) {
+        db.Search.findAll({
+            where: {
+                UserId: req.session.user_id
+            }
+        }).then(function (data) {
+            res.json({"data": JSON.stringify(data)});
+        });
     });
 
     cb(app);
