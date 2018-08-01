@@ -52,10 +52,7 @@ module.exports = function (app, cb) {
                 let hash = crypto.createHmac("sha512", userObject.password_salt);
                 hash.update(req.body.password);
                 if (hash.digest('hex') === userObject.password) {
-                    let currentSession = req.session;
-                    currentSession.username = userObject.username;
-                    currentSession.user_id = userObject.id;
-                    token = "nvnvnvnvnvnxcqwerqwerqwer";
+                    req.session.user_id = userObject.id;
                 } else {
                     error = "Invalid password";
                 }
@@ -72,30 +69,48 @@ module.exports = function (app, cb) {
             if (err)
                 console.log(err);
             else
-                res.redirect('/');
+                res.redirect('/home');
         });
     });
 
     app.get("/api/disasters", function (req, res) {
-        res.json({ "success": "success" });
-        console.log(req);
+        if (req.session.user_id) {
+            // Insert real code here
+            res.json({ "success": "success" });
+            console.log(req);
+        } else {
+            res.redirect("/home");
+        }
     });
 
     app.post("/api/searches", function (req, res) {
-        db.Search.create({"UserId": req.session.user_id}).then(function(dbPost) {
-            res.json({"success": "true"});
-        });
-        console.log(req);
+
+        if (req.session.user_id) {
+            let searchObject = {
+                "search_text": req.body.search_text,
+                "avoid_destination": req.body.avoid_destination,
+                "UserId": req.session.user_id
+            };
+            db.Search.create(searchObject).then(function(dbPost) {
+                res.json({"success": "true"});
+            });
+        } else {
+            res.redirect("/home");
+        }
     });
 
     app.get("/api/searches", function (req, res) {
-        db.Search.findAll({
-            where: {
-                UserId: req.session.user_id
-            }
-        }).then(function (data) {
-            res.json({"data": JSON.stringify(data)});
-        });
+        if (req.session.user_id) {
+            db.Search.findAll({
+                where: {
+                    UserId: req.session.user_id
+                }
+            }).then(function (data) {
+                res.json({"data": JSON.stringify(data)});
+            });
+        } else {
+            res.redirect("/home");
+        }
     });
 
     cb(app);
