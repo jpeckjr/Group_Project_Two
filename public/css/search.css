@@ -32,7 +32,17 @@ body {
     
 }
 
-.fakeimg {
+.map {
+    height: 200px;
+    background: #aaa;
+}
+
+.location {
+    height: 200px;
+    background: #aaa;
+}
+
+.savedSearches {
     height: 200px;
     background: #aaa;
 }

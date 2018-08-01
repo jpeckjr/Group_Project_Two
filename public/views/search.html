@@ -32,7 +32,7 @@
     <!-- Navbar -->
     <div class="pos-f-t">
         <div class="collapse" id="navbarToggleExternalContent">
-        
+
             <div class="bg-dark p-4">
                 <h5 class="text-white h4">See Disaster Results Below</h5>
                 <span class="text-muted">Some locations may appear safe</span>
@@ -100,39 +100,47 @@
 
     <div class="container" style="margin-top:30px">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="map">
                 <h2>Map</h2>
                 <h5>Disaster Map</h5>
-                <div class="fakeimg">Map Image</div>
-                <p>DISPLAY MAP TEXT</p>
+                <div class="map">Map Image</div>
+                <p>Map of Location</p>
                 <br>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco.
+                <p>Here is a map or your destination.
                 </p>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-6" id="location">
                 <h2>Disaster Information</h2>
                 <h5>Location</h5>
-                <div class="fakeimg">Table Data</div>
+                <div class="location">Table Data</div>
                 <p>Display Data from table</p>
                 <br>
-                <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                    ullamco.
+                <p>Review the statistics of your location search and decide if you want to mark your location as "Safe to Travel"
+                    or "Danger".
                 </p>
+                <button class="btn btn-outline-success" type="submit">Safe to Travel</button>
+                <button class="btn btn-outline-danger" type="submit">Danger</button>
             </div>
         </div>
 
         <hr>
 
-        <div class="row">
+        <div class="row" id="savedSearches">
+
             <div class="col-sm-12">
 
                 <h2>Saved Searches</h2>
-                <h5>Title description 2</h5>
+                <h5>Here are your saved searches</h5>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="savedSearches">Safe to Travel</div>
+                    </div>
 
-                <div class="fakeimg">Image</div>
+                    <div class="col-sm-6">
+                        <div class="savedSearches">Danger</div>
+                    </div>
+
+                </div>
 
                 <p>Some text..</p>
                 <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod
@@ -145,7 +153,7 @@
 
 
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <p>Footer</p>
+        <p>Brought to you by Mother Nature</p>
     </div>
 
 </body>
