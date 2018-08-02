@@ -14,6 +14,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="../css/search.css" />
     <link async href="http://fonts.googleapis.com/css?family=Aladin" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"
     />
+    <script src="../js/search.js"></script>
+    <!-- <script src="../js/home.js"></script> -->
+
+
 </head>
 
 <body>
@@ -25,103 +29,90 @@
         </p>
     </div>
 
+    <!-- Jumbotron -->
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <div class="inset-text-effect">
-            Disaster Finder
-        </div>
-        <br>
+        <h1 class="display-4">SCARE
+            <span class="advisor">advisor</span>
+        </h1>
+        
         <div class="inset-text-effect" id="slogan">
-            <p>Don't let your next vacation be your last</p>
+            <p>Don't let your next vacation be your last......</p>
         </div>
 
     </div>
 
-    <!-- Navbar -->
-    <!-- <div class="pos-f-t"> -->
-        <!-- <div class="collapse" id="navbarToggleExternalContent"> -->
-
-            <div class="bg-dark p-4">
+    <!-- Search Navbar -->
+    <div class="bg-dark p-4">
+        <div class="row">
+            <div class="col-sm-4" style="text-align: center">
                 <h5 class="text-white h4">See Disaster Results Below</h5>
                 <span class="text-muted">Some locations may appear safe</span>
             </div>
 
-            <div class="row">
+            <div class="col-sm-4" style="text-align: center"></div>
 
-                <div class="col-sm-12">
-
-                    <div class="storms">
-                        <div class="card">
-                            <p>
-                                <i class="fas fa-umbrella"></i>
-                            </p>
-                            <h3>15</h3>
-                            <p>Hurricanes</p>
-                        </div>
-                    </div>
-
-                    <div class="storms">
-                        <div class="card">
-                            <p>
-                                <i class="fas fa-bolt"></i>
-                            </p>
-                            <h3>20</h3>
-                            <p>Tropical Storms</p>
-                        </div>
-                    </div>
-
-                    <div class="storms">
-                        <div class="card">
-                            <p>
-                                <i class="fab fa-affiliatetheme"></i>
-                            </p>
-                            <h3>5</h3>
-                            <p>Tornados</p>
-                        </div>
-                    </div>
-
-                    <div class="storms">
-                        <div class="card">
-                            <p>
-                                <i class="fas fa-fire"></i>
-                            </p>
-                            <h3>10</h3>
-                            <p>Wild Fires</p>
-                        </div>
-                    </div>
-
-
-                </div>
-
-
-            <!-- </div> -->
-
-        <!-- </div> -->
-
-        <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Enter Destination" aria-label="Search" id="searchField">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
-            </form>
-        </nav>
-
+            <div class="col-sm-4">
+                <nav class="navbar navbar-dark bg-dark">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Enter Destination" aria-label="Search" id="searchField">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="search">Search</button>
+                    </form>
+                </nav>
+            </div>
+        </div>
     </div>
-    <!-- Navbar End-->
 
+    <br>
+
+    <!-- Results Cards -->
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="storms">
+                <div class="card">
+                    <p>
+                        <i class="fas fa-umbrella"></i>
+                    </p>
+                    <h3 id="stormNumber1"></h3>
+                    <p id="stormThings1"></p>
+                </div>
+            </div>
+
+            <div class="storms">
+                <div class="card">
+                    <p>
+                        <i class="fas fa-bolt"></i>
+                    </p>
+                    <h3 id="stormNumber2"></h3>
+                    <p id="stormThings2"></p>
+                </div>
+            </div>
+
+            <div class="storms">
+                <div class="card">
+                    <p>
+                        <i class="fab fa-affiliatetheme"></i>
+                    </p>
+                    <h3 id="stormNumber3"></h3>
+                    <p id="stormThings3"></p>
+                </div>
+            </div>
+
+            <div class="storms">
+                <div class="card">
+                    <p>
+                        <i class="fas fa-fire"></i>
+                    </p>
+                    <h3 id="stormNumber4"></h3>
+                    <p id="stormThings4"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location Table Data Results -->
     <div class="container" style="margin-top:30px">
         <div class="row">
-            <!-- <div class="col-sm-6" id="map">
-                <h2>Map</h2>
-                <h5>Disaster Map</h5>
-                <div class="map">Map Image</div>
-                <p>Map of Location</p>
-                <br>
-                <p>Here is a map or your destination.
-                </p>
-            </div> -->
+
             <div class="col-sm-2"></div>
 
             <div class="col-sm-8" id="location">
@@ -129,12 +120,11 @@
                 <h5>Location</h5>
                 <div class="location">Table Data</div>
                 <p>Display Data from table</p>
-                <button class="btn btn-outline-success" type="submit">Safe to Travel</button>
-                <button class="btn btn-outline-danger" type="submit">Danger</button>
+                <button class="btn btn-success" type="submit">Safe to Travel</button>
+                <button class="btn btn-danger" type="submit">Danger</button>
                 <p>Review the statistics of your location search and decide if you want to mark your location as "Safe to Travel"
                     or "Danger".
                 </p>
-
             </div>
 
             <div class="col-sm-2"></div>
@@ -142,8 +132,8 @@
 
         <hr>
 
+        <!-- Saved Searches -->
         <div class="row" id="savedSearches">
-
             <div class="col-sm-12">
 
                 <h2>Saved Searches</h2>
@@ -168,9 +158,10 @@
         </div>
     </div>
 
-
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <p>Brought to you by Mother Nature</p>
+        <h5>Brought to you by Mother Nature</h5>
+        <br>
+        <p>Powered By: Neal, Joe, Gary and Mike</p>
     </div>
 
 </body>
