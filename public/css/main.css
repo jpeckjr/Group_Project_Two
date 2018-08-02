@@ -1,4 +1,5 @@
 body {
+    background-image: url("../images/volcanoe.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
 }
@@ -27,11 +28,17 @@ h5 {
     color: black;
 }
 .modal-body {
-    color: black;
+    border: none;
 }
 .modal-content {
-    /* background-image: url("https://www.tvovermind.com/wp-content/uploads/2018/05/Chris-Farley-El-Nino.jpg");
-    background-size: contain; */
+    background-image: url("https://media.giphy.com/media/gM2oBCulgfnpK/giphy.gif");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    height:250px;
 }
 .my-4 {
     background-color: white;
@@ -51,5 +58,26 @@ h5 {
 .signUp {
     padding: 5px;
 }
+.display-4 {
+    font-weight: bolder;
+    text-shadow: 10px 1px 10px black;
+}
+.advisor {
+   color: red;
+   text-shadow: none;
+}
+#slogan {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 30px/1 "Aladin", Helvetica, sans-serif;
+    color: whitesmoke;
+    text-shadow: .5px .5px 0 rgba(140,140,140,0.6) , -1px -1px 1px rgba(0,0,0,0.67) ;
+ }
+ .modal-footer {
+     border: none;
+ }
 
 
