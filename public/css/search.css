@@ -70,6 +70,7 @@ body {
 .location {
     height: 200px;
     background: #444;
+    color: whitesmoke;
     overflow: auto;
     padding: 20px;
 }
