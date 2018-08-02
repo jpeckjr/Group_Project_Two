@@ -114,10 +114,43 @@ The opposite of Travelosity/Expedia/Hotwire: discourage people from travelling b
         "text": "Laramie, Wyoming"
     }
     ```
-* Response (TBD based on data):
+* Response:
     ```javascript
     {
-        "table":"[{'lat':'', 'long':''},{}]"
+        "data": [
+                    {
+                        "id": 15,
+                        "BEGIN_YEARMONTH": 200812,
+                        "BEGIN_DAY": 15,
+                        "EVENT_TYPE": "Cold/Wind Chill",
+                        "INJURIES_DIRECT": 0,
+                        "DEATHS_DIRECT": 1,
+                        "DAMAGE_PROPERTY": "0.00K",
+                        "BEGIN_LAT": "0",
+                        "BEGIN_LON": "0",
+                        "EPISODE_NARRATIVE": "Low temperatures dropped to 5 to 10 degrees above zero during the morning of December 15th.  One woman died due to cold exposure.",
+                        "createdAt": null,
+                        "updatedAt": null
+                    },
+                    {
+                        "id": 16,
+                        "BEGIN_YEARMONTH": 200812,
+                        "BEGIN_DAY": 2,
+                        "EVENT_TYPE": "Cold/Wind Chill",
+                        "INJURIES_DIRECT": 0,
+                        "DEATHS_DIRECT": 1,
+                        "DAMAGE_PROPERTY": "0.00K",
+                        "BEGIN_LAT": "0",
+                        "BEGIN_LON": "0",
+                        "EPISODE_NARRATIVE": "Low temperatures dropped into the lower 20s on December 2nd.  One woman died due to cold exposure after suffering spinal injuries from a fall.",
+                        "createdAt": null,
+                        "updatedAt": null
+                    }
+                ]
+        "numHurricanes": 5,
+        "numTornadoes": 6,
+        "numFires": 12,
+        "numFloods": 4
     }
     ```
 
