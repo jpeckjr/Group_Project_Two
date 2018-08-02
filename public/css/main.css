@@ -79,5 +79,10 @@ h5 {
  .modal-footer {
      border: none;
  }
-
+#loginForm {
+    opacity: .8;
+}
+#dropdownMenuButton {
+    color: red;
+}
 
