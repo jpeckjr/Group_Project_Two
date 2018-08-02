@@ -75,10 +75,13 @@ module.exports = function (app, cb) {
 
     app.get("/api/disasters", function (req, res) {
         if (req.session.user_id) {
-            db.stormevents2008.findAll({
-                limit: 300
+            db.Stormevent.findAll({
+                limit: 300,
+                where: {
+                    DEATHS_DIRECT: 1
+                }
             }).then(function(results) {
-                res.json({"data": JSON.stringify(results)});
+                res.json({"data": results});
             });
         } else {
             res.redirect("/home");
