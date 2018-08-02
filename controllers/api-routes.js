@@ -156,13 +156,14 @@ module.exports = function (app, cb) {
     });
 
     app.get("/api/searches", function (req, res) {
+        
         if (req.session.user_id) {
             db.Search.findAll({
                 where: {
                     UserId: req.body.text
                 }
             }).then(function (data) {
-                res.json({ "data": JSON.stringify(data) });
+                res.json({ "data": data });
             });
         } else {
             res.redirect("/home");
