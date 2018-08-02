@@ -2,8 +2,8 @@ $( document ).ready(function() {
     
     // cycle through background images
 
-    var images = ["../images/clouds.jpg", "../images/lightning.jpg", "../images/tornado.jpg", "../images/volcanoe.jpg"];
-    document.getElementsByClassName('mainview')[0].style.backgroundImage = 'url(' + images[Math.floor(Math.random() * images.length)] + ')';
+    // var images = ["../images/clouds.jpg", "../images/lightning.jpg", "../images/tornado.jpg", "../images/volcanoe.jpg"];
+    // document.getElementsByClassName('mainview')[0].style.backgroundImage = 'url(' + images[Math.floor(Math.random() * images.length)] + ')';
 
 
     // register form event
@@ -77,3 +77,4 @@ $( document ).ready(function() {
 
 
 });
+
