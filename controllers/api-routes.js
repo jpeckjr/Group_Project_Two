@@ -136,7 +136,7 @@ module.exports = function (app, cb) {
         if (req.session.user_id) {
             db.Search.findAll({
                 where: {
-                    UserId: req.session.user_id
+                    UserId: req.body.text
                 }
             }).then(function (data) {
                 res.json({ "data": JSON.stringify(data) });
