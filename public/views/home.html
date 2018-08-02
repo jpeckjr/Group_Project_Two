@@ -29,7 +29,27 @@
       </div>
       <hr class="my-4">
       <h3>Sign In To Begin Searching</h3>
-      <br>
+     
+
+      <div class="dropdown">
+
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            Need to create an account?
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <form class="signUp">
+              <input class="dropdown-item userForm" type="email" placeholder="Enter your email" id="email" required>
+              <input class="dropdown-item userForm" type="text" placeholder="Choose a username" id="username-register" required>
+              <input class="dropdown-item userForm" type="password" placeholder="Create a password" id="password-register" required>
+              <input class="dropdown-item userForm" type="password" placeholder="Confirm your password" id="password-confirm" required>
+              <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration" role="button" id="submit">Create Account</button>
+  
+            </form>
+          </div>
+  
+        </div><br>
+
       <form class="mainform" id="loginForm">
         <input type="text" placeholder="username" class="forminput" required id="username">
         <br>
@@ -39,24 +59,7 @@
       <button type="submit" form="loginForm" class="btn btn-primary btn-lg" role="button" id="loginButton">Login</button>
 
 
-      <div class="dropdown">
-
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-          aria-expanded="false">
-          Need to create an account?
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <form class="signUp">
-            <input class="dropdown-item userForm" type="email" placeholder="Enter your email" id="email" required>
-            <input class="dropdown-item userForm" type="text" placeholder="Choose a username" id="username-register" required>
-            <input class="dropdown-item userForm" type="password" placeholder="Create a password" id="password-register" required>
-            <input class="dropdown-item userForm" type="password" placeholder="Confirm your password" id="password-confirm" required>
-            <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#registration" role="button" id="submit">Create Account</button>
-
-          </form>
-        </div>
-
-      </div>
+     
 
 
 
