@@ -19,10 +19,33 @@ body {
     background-size: cover;
 }
 
+.inset-text-effect {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 70px/1 "Aladin", Helvetica, sans-serif;
+    color: red(25,25,25,1);
+    text-shadow: 1px 1px 0 rgba(140,140,140,0.6) , -1px -1px 1px rgba(0,0,0,0.67) ;
+}
+
+#slogan {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    border: none;
+    font: normal 35px/1 "Aladin", Helvetica, sans-serif;
+    color: whitesmoke;
+    text-shadow: 1px 1px 0 rgba(140,140,140,0.6) , -1px -1px 1px rgba(0,0,0,0.67) ;
+}
+
 .jumbotron {
     color: red;
     margin-bottom: auto;
     background-color: rgb(68,68,68,.8);
+    text-align: center;
 }
 
 .container {

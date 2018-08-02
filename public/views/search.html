@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="../css/search.css" />
+    <link async href="http://fonts.googleapis.com/css?family=Aladin" data-generated="http://enjoycss.com" rel="stylesheet" type="text/css"
+    />
 </head>
 
 <body>
@@ -24,14 +26,19 @@
     </div>
 
     <div class="jumbotron text-center" style="margin-bottom:0">
+        <div class="inset-text-effect">
+            Disaster Finder
+        </div>
+        <br>
+        <div class="inset-text-effect" id="slogan">
+            <p>Don't let your next vacation be your last</p>
+        </div>
 
-        <h1>Disaster Finder</h1>
-        <p>Don't let your next vacation be your last</p>
     </div>
 
     <!-- Navbar -->
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
+    <!-- <div class="pos-f-t"> -->
+        <!-- <div class="collapse" id="navbarToggleExternalContent"> -->
 
             <div class="bg-dark p-4">
                 <h5 class="text-white h4">See Disaster Results Below</h5>
@@ -40,49 +47,55 @@
 
             <div class="row">
 
-                <div class="storms">
-                    <div class="card">
-                        <p>
-                            <i class="fas fa-umbrella"></i>
-                        </p>
-                        <h3>15</h3>
-                        <p>Hurricanes</p>
+                <div class="col-sm-12">
+
+                    <div class="storms">
+                        <div class="card">
+                            <p>
+                                <i class="fas fa-umbrella"></i>
+                            </p>
+                            <h3>15</h3>
+                            <p>Hurricanes</p>
+                        </div>
                     </div>
+
+                    <div class="storms">
+                        <div class="card">
+                            <p>
+                                <i class="fas fa-bolt"></i>
+                            </p>
+                            <h3>20</h3>
+                            <p>Tropical Storms</p>
+                        </div>
+                    </div>
+
+                    <div class="storms">
+                        <div class="card">
+                            <p>
+                                <i class="fab fa-affiliatetheme"></i>
+                            </p>
+                            <h3>5</h3>
+                            <p>Tornados</p>
+                        </div>
+                    </div>
+
+                    <div class="storms">
+                        <div class="card">
+                            <p>
+                                <i class="fas fa-fire"></i>
+                            </p>
+                            <h3>10</h3>
+                            <p>Wild Fires</p>
+                        </div>
+                    </div>
+
+
                 </div>
 
-                <div class="storms">
-                    <div class="card">
-                        <p>
-                            <i class="fas fa-bolt"></i>
-                        </p>
-                        <h3>20</h3>
-                        <p>Tropical Storms</p>
-                    </div>
-                </div>
 
-                <div class="storms">
-                    <div class="card">
-                        <p>
-                            <i class="fab fa-affiliatetheme"></i>
-                        </p>
-                        <h3>5</h3>
-                        <p>Tornados</p>
-                    </div>
-                </div>
+            <!-- </div> -->
 
-                <div class="storms">
-                    <div class="card">
-                        <p>
-                            <i class="fas fa-fire"></i>
-                        </p>
-                        <h3>10</h3>
-                        <p>Wild Fires</p>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
+        <!-- </div> -->
 
         <nav class="navbar navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
@@ -100,7 +113,7 @@
 
     <div class="container" style="margin-top:30px">
         <div class="row">
-            <div class="col-sm-6" id="map">
+            <!-- <div class="col-sm-6" id="map">
                 <h2>Map</h2>
                 <h5>Disaster Map</h5>
                 <div class="map">Map Image</div>
@@ -108,19 +121,23 @@
                 <br>
                 <p>Here is a map or your destination.
                 </p>
-            </div>
-            <div class="col-sm-6" id="location">
+            </div> -->
+            <div class="col-sm-2"></div>
+
+            <div class="col-sm-8" id="location">
                 <h2>Disaster Information</h2>
                 <h5>Location</h5>
                 <div class="location">Table Data</div>
                 <p>Display Data from table</p>
-                <br>
+                <button class="btn btn-outline-success" type="submit">Safe to Travel</button>
+                <button class="btn btn-outline-danger" type="submit">Danger</button>
                 <p>Review the statistics of your location search and decide if you want to mark your location as "Safe to Travel"
                     or "Danger".
                 </p>
-                <button class="btn btn-outline-success" type="submit">Safe to Travel</button>
-                <button class="btn btn-outline-danger" type="submit">Danger</button>
+
             </div>
+
+            <div class="col-sm-2"></div>
         </div>
 
         <hr>
