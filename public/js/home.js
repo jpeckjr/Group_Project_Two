@@ -24,11 +24,11 @@ $( document ).ready(function() {
           type: "POST",
           data: userInfo
         }).then(function (response) {
-            if (response === "success") {
+            if (response.success === "true") {
               $(".modal-body").html("You have successfully created an account. Please log in.")
             }
             else {
-              $(".modal-body").html("Please try again");
+              $(".modal-body").html("Please try again. " + response.error + ". " + response.username + " is already taken");
             }
             console.log(response)
           });
