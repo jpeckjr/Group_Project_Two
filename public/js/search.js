@@ -1,12 +1,20 @@
 $(document).ready(function () {
-    // let user = {
-    //     "userId": "3"
-    // }
+
     $.ajax("/api/searches", {
         type: "get",
-        // data: user
+
     }).then(function (response) {
-        console.log(response)
+        let savedLocations = response.data;
+        for (i = 0; i < savedLocations.length; i++) {
+            console.log(savedLocations[i])
+            if (savedLocations[i].avoid_destination === false) {
+                $("#safeTravel").append("<br>" + savedLocations[i].search_text);
+            }
+            else {
+                $("#dangerTravel").append("<br>" + savedLocations[i].search_text);
+            }
+
+        }
 
     })
 

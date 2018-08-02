@@ -55,6 +55,15 @@ body {
     text-align: center;
 }
 
+.page-footer {
+    color: red;
+    margin-bottom: auto;
+    background-color: rgb(68,68,68,.8);
+    text-align: center;
+}
+
+
+
 .container {
     color: red;
     text-align: center;
