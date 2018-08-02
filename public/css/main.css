@@ -1,8 +1,9 @@
-/* body {
-    background-image: url("images/lightning.jpg");
-} */
+body {
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
 .jumbotron {
-    margin-top: 50px;
+    margin-top: 10px;
     background: none;
     text-align: center;
     color: white;
@@ -43,7 +44,12 @@ h5 {
     float: right;
 }
 .userForm {
-    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    background-color: lightgray;
+    border-radius: 4px;
+}
+.signUp {
+    padding: 5px;
 }
 
 
