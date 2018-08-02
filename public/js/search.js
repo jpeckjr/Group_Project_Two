@@ -1,4 +1,14 @@
 $(document).ready(function () {
+    // let user = {
+    //     "userId": "3"
+    // }
+    $.ajax("/api/searches", {
+        type: "get",
+        // data: user
+    }).then(function (response) {
+        console.log(response)
+
+    })
 
     $("#search").on("click", function (event) {
         event.preventDefault();
@@ -23,81 +33,62 @@ $(document).ready(function () {
             // $("#location").html(response);
             // console.log("struggle is real " + response.data[i].EVENT_TYPE)
             console.log(response)
-            // for (i = 0; i < 20; i++) {
-                $(".location").append(response.data[9].EPISODE_NARRATIVE)
 
-            // }
+            let random = response.data[Math.floor(Math.random() * response.data.length)]
+            $(".location").html(random.EPISODE_NARRATIVE)
 
-
+            // card event details
+            $("#stormThings1").html(random.STATE);
+            $("#stormThings2").html(random.EVENT_TYPE);
+            $("#stormThings3").html(random.DEATHS_DIRECT);
+            $("#stormThings4").html(random.DAMAGE_PROPERTY);
 
         });
 
-        $.ajax("/api/disasters", {
-            type: "get",
-            data: data
+    });
+
+    $("#safe").on("click", function (event) {
+        event.preventDefault();
+        let state = $("#stormThings1").text();
+
+        console.log(state)
+        let safeSearch = {
+            "search_text": state,
+            "avoid_destination": false
+        };
+
+        $.ajax("/api/searches", {
+            type: "post",
+            data: safeSearch
         }).then(function (response) {
-            // $("#location").html(response);
-            // console.log("struggle is real " + response.data[i].EVENT_TYPE)
+            $("#safeTravel").append("<br>" + state);
             console.log(response)
-            $("#stormThings1").append(response.data[0].EVENT_TYPE);
-            $("#stormThings2").append(response.data[1].EVENT_TYPE);
-            $("#stormThings3").append(response.data[2].EVENT_TYPE);
-            $("#stormThings4").append(response.data[3].EVENT_TYPE)
 
         });
 
-        $.ajax("/api/disasters", {
-            type: "get",
-            data: data
+    });
+
+    $("#danger").on("click", function (event) {
+        event.preventDefault();
+        let state = $("#stormThings1").text();
+
+        console.log(state)
+        let safeSearch = {
+            "search_text": state,
+            "avoid_destination": true
+        };
+
+        $.ajax("/api/searches", {
+            type: "post",
+            data: safeSearch
         }).then(function (response) {
-            // $("#location").html(response);
-            // console.log("struggle is real " + response.data[i].EVENT_TYPE)
+            $("#dangerTravel").append("<br>" + state);
             console.log(response)
-            $("#stormNumber1").append(response.data[0].DEATHS_DIRECT);
-            $("#stormNumber2").append(response.data[1].DEATHS_DIRECT);
-            $("#stormNumber3").append(response.data[2].DEATHS_DIRECT);
-            $("#stormNumber4").append(response.data[3].DEATHS_DIRECT)
 
         });
 
-       
+    });
 
-    })
 
 })
 
-// Search button pulls info from data table
-// $("#search").on("click", function (event) {
-//     event.preventDefault();
-
-//     console.log("CLICKY")
-//     // Save location searched into the table data
-//     var searchedLocation = $("#location")
-//         .val()
-//         .trim();
-//     // Remove spaces 
-//     searchedLocation = searchedLocation.replace(/\s+/g, "").toLowerCase();
-//     console.log("You searched for:", searchedLocation)
-//     // AJAX GET_request
-//     $.get("/api/search/" + searchedLocation, function (data) {
-//         console.log("DATA HERE")
-//         console.log(data);
-//         //Empty section
-//         $("#location").empty();
-//         //Return error if no data
-//         if (!data) {
-//             $("#location").append("<h2> No location found. Please try again. </h2>");
-//         }
-//         else {
-//             //Append location
-//             $("#well-section").append("<h2>" + data.something + "</h2>");
-//             // Need table data
-//             $("#well-section").append("<h3>Role: " + data.something + "</h3>");
-//             // Need table data
-//             $("#well-section").append("<h3>Age: " + data.something + "</h3>");
-//             // Need table data
-//             $("#well-section").append("<h3>Force Points: " + data.something + "</h3>");
-//         }
-//     });
-
-// });

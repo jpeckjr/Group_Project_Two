@@ -40,6 +40,14 @@ body {
     text-shadow: 1px 1px 0 rgba(140,140,140,0.6) , -1px -1px 1px rgba(0,0,0,0.67);
 }
 
+#safeTravel {
+    overflow: auto;
+}
+
+#dangerTravel {
+    overflow: auto;
+}
+
 .jumbotron {
     color: red;
     margin-bottom: auto;
@@ -56,19 +64,19 @@ body {
 
 .map {
     height: 200px;
-    background: #aaa;
+    background: #444;
 }
 
 .location {
     height: 200px;
-    background: #aaa;
+    background: #444;
     overflow: auto;
     padding: 20px;
 }
 
 .savedSearches {
     height: 200px;
-    background: #aaa;
+    background: #444;
 }
 
 /* ========Section Counter========== */

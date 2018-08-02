@@ -53,6 +53,7 @@ $( document ).ready(function() {
           if (response.error === "") {
             window.location.replace('/search');
             console.log("yay");
+            console.log(response);
           }
           else {
             alert("Your username and/or password is incorrect. Please try again.");

@@ -72,7 +72,7 @@
                     <p>
                         <i class="fas fa-umbrella"></i>
                     </p>
-                    <h3 id="stormNumber1"></h3>
+                    <p id="stormNumber1">STATE</p>
                     <p id="stormThings1"></p>
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     <p>
                         <i class="fas fa-bolt"></i>
                     </p>
-                    <h3 id="stormNumber2"></h3>
+                    <p id="stormNumber2">STORM TYPE</p>
                     <p id="stormThings2"></p>
                 </div>
             </div>
@@ -92,7 +92,7 @@
                     <p>
                         <i class="fab fa-affiliatetheme"></i>
                     </p>
-                    <h3 id="stormNumber3"></h3>
+                    <p id="stormNumber3">DEATH COUNT</p>
                     <p id="stormThings3"></p>
                 </div>
             </div>
@@ -102,7 +102,7 @@
                     <p>
                         <i class="fas fa-fire"></i>
                     </p>
-                    <h3 id="stormNumber4"></h3>
+                    <p id="stormNumber4">$ PROPERTY DAMAGE</p>
                     <p id="stormThings4"></p>
                 </div>
             </div>
@@ -120,8 +120,8 @@
                 <h5>Location</h5>
                 <div class="location">Table Data</div>
                 <p>Display Data from table</p>
-                <button class="btn btn-success" type="submit">Safe to Travel</button>
-                <button class="btn btn-danger" type="submit">Danger</button>
+                <button class="btn btn-success" type="submit" id="safe">Safe to Travel</button>
+                <button class="btn btn-danger" type="submit" id="danger">Danger</button>
                 <p>Review the statistics of your location search and decide if you want to mark your location as "Safe to Travel"
                     or "Danger".
                 </p>
@@ -140,11 +140,13 @@
                 <h5>Here are your saved searches</h5>
                 <div class="row">
                     <div class="col-sm-6">
-                        <div class="savedSearches">Safe to Travel</div>
+                        <h3>SAFE TO VISIT</h3>
+                        <div class="savedSearches" id="safeTravel"></div>
                     </div>
 
                     <div class="col-sm-6">
-                        <div class="savedSearches">Danger</div>
+                        <h3>DANGEROUS TO VISIT</h3>
+                        <div class="savedSearches" id="dangerTravel"></div>
                     </div>
 
                 </div>
