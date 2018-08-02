@@ -1,6 +1,9 @@
 const db = require("../models");
 const crypto = require("crypto");
 const request = require("request");
+const geolib = require("geolib");
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op
 
 module.exports = function (app, cb) {
 
@@ -76,18 +79,19 @@ module.exports = function (app, cb) {
 
     app.get("/api/disasters", function (req, res) {
         if (req.session.user_id) {
-            let addressString = req.body.text;
-            let API_KEY = process.env.GOOGLE_API_KEY;
-            if (!addressString) {
-                addressString = "St+Paul+MN";
-            }
-            let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressString + "&key=" + API_KEY;
+            // let addressString = req.body.text;
+            // let API_KEY = process.env.GOOGLE_API_KEY;
+            // if (!addressString) {
+            //     addressString = "St+Paul+MN";
+            // }
+            // let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressString + "&key=" + API_KEY;
 
-            request(queryURL, function (error, response, body) {
-                console.log("body:\n" + body);
+            // request(queryURL, function (error, response, body) {
+            //     console.log("body:\n" + body);
                 // let places = body.results;
-                // let lat;
-                // let lng;
+                let lat;
+                let lng;
+                let desiredLocation;
                 // places.forEach(place => {
                 //     lat = place.geometry.location.lat;
                 //     lng = place.geometry.location.lng;
@@ -95,22 +99,41 @@ module.exports = function (app, cb) {
 
                 // console.log("lat:" + lat);
                 // console.log("lng:" + lng);
-            });
+                lat = 44.9537029;
+                lng = -93.08995779999999;
+                desiredLocation = {
+                    "latitude": lat,
+                    "longitude": lng
+                }
 
+            // });
             db.Stormevent.findAll({
-                limit: 300,
                 where: {
-                    DEATHS_DIRECT: 1
+                    DEATHS_DIRECT: {[Op.gt]: 0}
                 }
             }).then(function (results) {
+
+                let currentLocation;
+                let subset = results.filter(function(row) {
+                    currentLocation = {
+                        "latitude": row.BEGIN_LAT,
+                        "longitude": row.BEGIN_LON
+                    }
+                    // return (parseFloat(row.BEGIN_LAT) !== 0);
+                    return (geolib.getDistance(currentLocation, desiredLocation) < 500000);
+                });
+
+
+
                 res.json({
-                    "data": results,
+                    "data": subset,
                     "numHurricanes": 4,
                     "numTornadoes": 3,
                     "numFires": 12,
                     "numFloods": 3
                 });
             });
+
         } else {
             res.redirect("/home");
         }
