@@ -28,22 +28,19 @@ $(document).ready(function () {
     $("#search").on("click", function (event) {
         event.preventDefault();
         console.log("CLICKY")
-        var searchedLocation = $("#searchField")
-            .val()
-            .trim();
-        // Remove spaces 
-        searchedLocation = searchedLocation.replace(/\s+/g, "").toLowerCase();
-        // Save location searched into the table data
+        let searchedLocation = $("#searchField").val().trim();
+        console.log("searchedLocation: " + searchedLocation);
 
-        console.log("You searched for:", searchedLocation)
+        // Replace spaces with plus signs
+        searchedLocation = searchedLocation.replace(/\s+/g, "+").toLowerCase();
 
         let data = {
             "text": searchedLocation
         };
 
         $.ajax("/api/disasters", {
-            type: "get",
-            data: data
+            "type": "get",
+            "data": data
         }).then(function (response) {
             // $("#location").html(response);
             // console.log("struggle is real " + response.data[i].EVENT_TYPE)

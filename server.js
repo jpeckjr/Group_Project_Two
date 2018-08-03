@@ -7,11 +7,12 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 const db = require("./models");
+const sessionSecret = process.env.SESSION_SECRET || "some secret";
 
 app.use(session({
-    secret: "some secret",
+    secret: sessionSecret,
     cookie: {
-        maxAge: 100000
+        maxAge: 604800000
     }
 }));
 app.use(bodyParser.urlencoded({extended: true}));

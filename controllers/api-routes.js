@@ -88,10 +88,11 @@ module.exports = function (app, cb) {
             lng = -93.08995779999999;
 
             let addressString = req.body.text;
+            console.log("req.body.text: " + req.body.text);
             let API_KEY = process.env.GOOGLE_API_KEY;
-            if (!addressString) {
-                addressString = "Los+Angeles+CA";
-            }
+            // if (addressString) {
+            //     addressString = "Los+Angeles+CA";
+            // }
             let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressString + "&key=" + API_KEY;
 
             request(queryURL, function (error, response, body) {
@@ -142,7 +143,7 @@ module.exports = function (app, cb) {
 
 
         } else {
-            res.redirect("/home");
+            res.send(401);
         }
     });
 
@@ -158,7 +159,7 @@ module.exports = function (app, cb) {
                 res.json({ "success": "true" });
             });
         } else {
-            res.redirect("/home");
+            res.send(401);
         }
     });
 
@@ -173,12 +174,16 @@ module.exports = function (app, cb) {
                 res.json({ "data": data });
             });
         } else {
-            res.redirect("/home");
+            res.send(401);
         }
     });
 
     app.get("/api/username", function (req, res) {
-        res.json({"username": req.session.username});
+        if (req.session.user_id) {
+            res.json({"username": req.session.username});
+        } else {
+            res.send(401);
+        }
     });
 
     cb(app);
