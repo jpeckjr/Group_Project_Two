@@ -57,6 +57,7 @@ module.exports = function (app, cb) {
                 hash.update(req.body.password);
                 if (hash.digest('hex') === userObject.password) {
                     req.session.user_id = userObject.id;
+                    req.session.username = userObject.username;
                 } else {
                     error = "Invalid password";
                 }
@@ -79,60 +80,66 @@ module.exports = function (app, cb) {
 
     app.get("/api/disasters", function (req, res) {
         if (req.session.user_id) {
-            // let addressString = req.body.text;
-            // let API_KEY = process.env.GOOGLE_API_KEY;
-            // if (!addressString) {
-            //     addressString = "St+Paul+MN";
-            // }
-            // let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressString + "&key=" + API_KEY;
 
-            // request(queryURL, function (error, response, body) {
-            //     console.log("body:\n" + body);
-                // let places = body.results;
-                let lat;
-                let lng;
-                let desiredLocation;
-                // places.forEach(place => {
-                //     lat = place.geometry.location.lat;
-                //     lng = place.geometry.location.lng;
-                // });
+            let lat;
+            let lng;
+            let desiredLocation;
+            lat = 44.9537029;
+            lng = -93.08995779999999;
 
-                // console.log("lat:" + lat);
-                // console.log("lng:" + lng);
-                lat = 44.9537029;
-                lng = -93.08995779999999;
+            let addressString = req.body.text;
+            let API_KEY = process.env.GOOGLE_API_KEY;
+            if (!addressString) {
+                addressString = "Los+Angeles+CA";
+            }
+            let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressString + "&key=" + API_KEY;
+
+            request(queryURL, function (error, response, body) {
+                
+                let places = JSON.parse(body).results;
+                
+                lat = places[0].geometry.location.lat;
+                lng = places[0].geometry.location.lng;
+               
+                console.log("lat:" + lat);
+                console.log("lng:" + lng);
+
                 desiredLocation = {
                     "latitude": lat,
                     "longitude": lng
                 }
 
-            // });
-            db.Stormevent.findAll({
-                where: {
-                    DEATHS_DIRECT: {[Op.gt]: 0}
-                }
-            }).then(function (results) {
-
-                let currentLocation;
-                let subset = results.filter(function(row) {
-                    currentLocation = {
-                        "latitude": row.BEGIN_LAT,
-                        "longitude": row.BEGIN_LON
+                db.Stormevent.findAll({
+                    where: {
+                        DEATHS_DIRECT: { [Op.gt]: 0 }
                     }
-                    // return (parseFloat(row.BEGIN_LAT) !== 0);
-                    return (geolib.getDistance(currentLocation, desiredLocation) < 500000);
-                });
+                }).then(function (results) {
+
+                    let currentLocation;
+                    let subset = results.filter(function (row) {
+                        currentLocation = {
+                            "latitude": row.BEGIN_LAT,
+                            "longitude": row.BEGIN_LON
+                        }
+                        // return (parseFloat(row.BEGIN_LAT) !== 0);
+                        return (geolib.getDistance(currentLocation, desiredLocation) < 500000);
+                    });
 
 
 
-                res.json({
-                    "data": subset,
-                    "numHurricanes": 4,
-                    "numTornadoes": 3,
-                    "numFires": 12,
-                    "numFloods": 3
+                    res.json({
+                        "data": subset,
+                        "numHurricanes": 4,
+                        "numTornadoes": 3,
+                        "numFires": 12,
+                        "numFloods": 3
+                    });
                 });
             });
+
+
+
+
 
         } else {
             res.redirect("/home");
@@ -168,6 +175,10 @@ module.exports = function (app, cb) {
         } else {
             res.redirect("/home");
         }
+    });
+
+    app.get("/api/username", function (req, res) {
+        res.json({"username": req.session.username});
     });
 
     cb(app);
