@@ -1,4 +1,11 @@
 $(document).ready(function () {
+    // log in
+    $.ajax("/api/username", {
+        type: "get",
+    }).then(function (res) {
+        let userLogin = res.username;
+        $("#userName").html(userLogin);
+    })
 
     $.ajax("/api/searches", {
         type: "get",
@@ -99,4 +106,6 @@ $(document).ready(function () {
 
 
 })
+
+
 

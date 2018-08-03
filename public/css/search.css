@@ -1,4 +1,96 @@
+/* First lets set a background */
+.bg{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/clouds.jpg');
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: fixed;
+    z-index: -2;
+  }
+  
+  /* Now the same background, but with brightness filters*/
+  .lightning{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/clouds.jpg');
+    background-position: center center;
+    background-origin: content-box;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-filter: brightness(3);
+    filter: brightness(3);
+    -o-filter: brightness(3);
+    -moz-filter: brightness(3);
+    z-index: -1;
+  }
+  
+  /*Now just a opacity animation*/
+  .flashit{
+  -webkit-animation: flash ease-out 7s infinite;
+  animation: flash ease-out 7s infinite;
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+  }
+  
+  @-webkit-keyframes flash {
+      from { opacity: 0; } 
+    92% { opacity: 0; }
+      93% { opacity: 0.6; }
+    94% { opacity: 0.2; }
+    96% { opacity: 0.9; } 
+      to { opacity: 0; }
+  }
+  
+  @keyframes flash {
+      from { opacity: 0; } 
+      92% { opacity: 0; }
+      93% { opacity: 0.6; }
+      94% { opacity: 0.2; }
+      96% { opacity: 1; } 
+      to { opacity: 0; }
+  }
+  /*End! is that simple! */
+  
+  /*Now just some stupid logo to get some look and feel */
+  #logo{
+    z-index:1000;
+    width: 100%;
+    font-size: 6rem;
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-left: -18rem;
+    margin-top: -2rem;
+    font-weight: 900;
+  }
+  #logo span{ font-weight: 100;}
+  
+  html , body{
+    font-family: "Titillium Web", "lato" , sans-serif;
+  }
+  @import url(https://fonts.googleapis.com/css?family=Titillium+Web:200,900|Lato:100,300,900);
+  
+  @media screen and (max-width: 630px){
+    #logo{
+      font-size: 3rem;
+      margin-left: -9rem;
+      margin-top: -1rem;
+    }
+  }
+
 /* User Logged in */
+#login {
+    color: white;
+}
 
 .topnav {
     float: right;
@@ -17,7 +109,7 @@
 
 body { 
     /* The image used */
-    background-image: url("../images/background.jpg");
+    background-image: url("../images/storm.jpg");
 
     /* Full height */
     height: 100%; 
@@ -51,7 +143,7 @@ body {
 .jumbotron {
     color: red;
     margin-bottom: auto;
-    background-color: rgb(68,68,68,.8);
+    background-color: rgba(68, 68, 68, 0);
     text-align: center;
 }
 
@@ -73,12 +165,12 @@ body {
 
 .map {
     height: 200px;
-    background: #444;
+    background-color: rgb(68,68,68,.8);
 }
 
 .location {
     height: 200px;
-    background: #444;
+    background-color: rgb(68,68,68,.8);
     color: whitesmoke;
     overflow: auto;
     padding: 20px;
@@ -86,7 +178,7 @@ body {
 
 .savedSearches {
     height: 200px;
-    background: #444;
+    background-color: rgb(68,68,68,.8);
 }
 
 /* ========Section Counter========== */
@@ -126,8 +218,8 @@ body {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     padding: 16px;
     text-align: center;
-    background-color: #444;
-    color: red;
+    background-color: rgb(68,68,68,.8);
+    color: rgb(255, 2, 2, 0.8);
     font-size: 20px;
 }
 
