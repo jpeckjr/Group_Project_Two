@@ -98,10 +98,6 @@ module.exports = function (app, cb) {
                 lat = places[0].geometry.location.lat;
                 lng = places[0].geometry.location.lng;
                
-                console.log("places: " + places);
-                console.log("lat: " + lat);
-                console.log("lng: " + lng);
-
                 let desiredLocation = {
                     "latitude": lat,
                     "longitude": lng

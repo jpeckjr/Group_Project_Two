@@ -33,7 +33,6 @@ $(document).ready(function () {
         let data = {
             "text": searchedLocation
         };
-        console.log("data", data);
         $.ajax("/api/disasters", {
             "type": "GET",
             "data": data
@@ -56,7 +55,6 @@ $(document).ready(function () {
         event.preventDefault();
         let state = $("#stormThings1").text();
 
-        console.log(state)
         let safeSearch = {
             "search_text": state,
             "avoid_destination": false
@@ -67,8 +65,6 @@ $(document).ready(function () {
             data: safeSearch
         }).then(function (response) {
             $("#safeTravel").append("<br>" + state);
-            console.log(response)
-
         });
 
     });
@@ -77,7 +73,6 @@ $(document).ready(function () {
         event.preventDefault();
         let state = $("#stormThings1").text();
 
-        console.log(state)
         let safeSearch = {
             "search_text": state,
             "avoid_destination": true
