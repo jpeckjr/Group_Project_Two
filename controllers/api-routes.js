@@ -85,7 +85,6 @@ module.exports = function (app, cb) {
             let lng;
 
             let addressString = req.query.text;
-            console.log(addressString);
             
             let API_KEY = process.env.GOOGLE_API_KEY;
 
@@ -131,7 +130,7 @@ module.exports = function (app, cb) {
                     });
                 });
             });
-            
+
         } else {
             res.send(401);
         }
