@@ -13,23 +13,19 @@ $(document).ready(function () {
     }).then(function (response) {
         let savedLocations = response.data;
         for (i = 0; i < savedLocations.length; i++) {
-            console.log(savedLocations[i])
+
             if (savedLocations[i].avoid_destination === false) {
                 $("#safeTravel").append("<br>" + savedLocations[i].search_text);
             }
             else {
                 $("#dangerTravel").append("<br>" + savedLocations[i].search_text);
             }
-
         }
-
-    })
+    });
 
     $("#search").on("click", function (event) {
         event.preventDefault();
-        console.log("CLICKY")
         let searchedLocation = $("#searchField").val().trim();
-        console.log("searchedLocation: " + searchedLocation);
 
         // Replace spaces with plus signs
         searchedLocation = searchedLocation.replace(/\s+/g, "+").toLowerCase();
@@ -37,16 +33,12 @@ $(document).ready(function () {
         let data = {
             "text": searchedLocation
         };
-
         $.ajax("/api/disasters", {
-            "type": "get",
+            "type": "GET",
             "data": data
         }).then(function (response) {
-            // $("#location").html(response);
-            // console.log("struggle is real " + response.data[i].EVENT_TYPE)
-            console.log(response)
 
-            let random = response.data[Math.floor(Math.random() * response.data.length)]
+            let random = response.data[Math.floor(Math.random() * response.data.length)];
             $(".location").html(random.EPISODE_NARRATIVE)
 
             // card event details
@@ -63,7 +55,6 @@ $(document).ready(function () {
         event.preventDefault();
         let state = $("#stormThings1").text();
 
-        console.log(state)
         let safeSearch = {
             "search_text": state,
             "avoid_destination": false
@@ -74,8 +65,6 @@ $(document).ready(function () {
             data: safeSearch
         }).then(function (response) {
             $("#safeTravel").append("<br>" + state);
-            console.log(response)
-
         });
 
     });
@@ -84,7 +73,6 @@ $(document).ready(function () {
         event.preventDefault();
         let state = $("#stormThings1").text();
 
-        console.log(state)
         let safeSearch = {
             "search_text": state,
             "avoid_destination": true
@@ -95,14 +83,11 @@ $(document).ready(function () {
             data: safeSearch
         }).then(function (response) {
             $("#dangerTravel").append("<br>" + state);
-            console.log(response)
-
         });
 
     });
 
-
-})
+});
 
 
 
