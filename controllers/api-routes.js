@@ -3,7 +3,7 @@ const crypto = require("crypto");
 const request = require("request");
 const geolib = require("geolib");
 const Sequelize = require("sequelize");
-const Op = Sequelize.Op
+const Op = Sequelize.Op;
 
 module.exports = function (app, cb) {
 
@@ -83,29 +83,27 @@ module.exports = function (app, cb) {
 
             let lat;
             let lng;
-            let desiredLocation;
-            lat = 44.9537029;
-            lng = -93.08995779999999;
 
-            let addressString = req.body.text;
-            console.log("req.body.text: " + req.body.text);
+            let addressString = req.query.text;
+            console.log(addressString);
+            
             let API_KEY = process.env.GOOGLE_API_KEY;
-            // if (addressString) {
-            //     addressString = "Los+Angeles+CA";
-            // }
+
             let queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address=" + addressString + "&key=" + API_KEY;
 
             request(queryURL, function (error, response, body) {
-                
+                if (error) 
+                    console.log(error);
+
                 let places = JSON.parse(body).results;
-                
                 lat = places[0].geometry.location.lat;
                 lng = places[0].geometry.location.lng;
                
-                console.log("lat:" + lat);
-                console.log("lng:" + lng);
+                console.log("places: " + places);
+                console.log("lat: " + lat);
+                console.log("lng: " + lng);
 
-                desiredLocation = {
+                let desiredLocation = {
                     "latitude": lat,
                     "longitude": lng
                 }
@@ -115,18 +113,14 @@ module.exports = function (app, cb) {
                         DEATHS_DIRECT: { [Op.gt]: 0 }
                     }
                 }).then(function (results) {
-
                     let currentLocation;
                     let subset = results.filter(function (row) {
                         currentLocation = {
                             "latitude": row.BEGIN_LAT,
                             "longitude": row.BEGIN_LON
                         }
-                        // return (parseFloat(row.BEGIN_LAT) !== 0);
                         return (geolib.getDistance(currentLocation, desiredLocation) < 500000);
                     });
-
-
 
                     res.json({
                         "data": subset,
@@ -137,11 +131,7 @@ module.exports = function (app, cb) {
                     });
                 });
             });
-
-
-
-
-
+            
         } else {
             res.send(401);
         }
