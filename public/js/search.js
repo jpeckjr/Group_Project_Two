@@ -38,6 +38,7 @@ $(document).ready(function () {
             "data": data
         }).then(function (response) {
 
+
             let random = response.data[Math.floor(Math.random() * response.data.length)];
             $(".location").html(random.EPISODE_NARRATIVE)
 
@@ -46,7 +47,6 @@ $(document).ready(function () {
             $("#stormThings2").html(random.EVENT_TYPE);
             $("#stormThings3").html(random.DEATHS_DIRECT);
             $("#stormThings4").html(random.DAMAGE_PROPERTY);
-
         });
 
     });
@@ -65,6 +65,7 @@ $(document).ready(function () {
             data: safeSearch
         }).then(function (response) {
             $("#safeTravel").append("<br>" + state);
+
         });
 
     });
@@ -83,11 +84,11 @@ $(document).ready(function () {
             data: safeSearch
         }).then(function (response) {
             $("#dangerTravel").append("<br>" + state);
-        });
 
+        });
     });
 
-});
+
 
 
 
