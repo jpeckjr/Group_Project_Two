@@ -20,7 +20,6 @@ $(document).ready(function () {
             else {
                 $("#dangerTravel").append("<br>" + savedLocations[i].search_text);
             }
-
         }
 
     })
@@ -42,8 +41,7 @@ $(document).ready(function () {
             "type": "get",
             "data": data
         }).then(function (response) {
-            // $("#location").html(response);
-            // console.log("struggle is real " + response.data[i].EVENT_TYPE)
+        
             console.log(response)
 
             let random = response.data[Math.floor(Math.random() * response.data.length)]
@@ -54,7 +52,6 @@ $(document).ready(function () {
             $("#stormThings2").html(random.EVENT_TYPE);
             $("#stormThings3").html(random.DEATHS_DIRECT);
             $("#stormThings4").html(random.DAMAGE_PROPERTY);
-
         });
 
     });
@@ -75,7 +72,6 @@ $(document).ready(function () {
         }).then(function (response) {
             $("#safeTravel").append("<br>" + state);
             console.log(response)
-
         });
 
     });
@@ -96,11 +92,8 @@ $(document).ready(function () {
         }).then(function (response) {
             $("#dangerTravel").append("<br>" + state);
             console.log(response)
-
         });
-
     });
-
 
 })
 
